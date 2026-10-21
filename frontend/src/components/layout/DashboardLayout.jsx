@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import logo from '../../assets/logo.png'
 
 export default function DashboardLayout({ children }) {
   const { user, logout, isAdmin } = useAuth()
@@ -28,7 +29,10 @@ export default function DashboardLayout({ children }) {
       {/* Sidebar */}
       <aside className="w-64 bg-white shadow-sm border-r border-gray-200 flex flex-col">
         <div className="p-6 border-b border-gray-200">
-          <Link to="/" className="text-lg font-bold text-blue-600">Jejak Aksara</Link>
+          <Link to="/" className="text-lg font-bold text-blue-600 flex items-center gap-2">
+            <span>Jejak Aksara</span>
+            <img src={logo} alt="Logo" className="h-6 w-6 object-contain rounded" />
+          </Link>
           <p className="text-xs text-gray-500 mt-1">Admin Panel</p>
         </div>
         <nav className="flex-1 p-4 space-y-1">

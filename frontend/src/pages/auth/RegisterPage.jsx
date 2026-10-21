@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../../api/axios'
 import { useAuth } from '../../context/AuthContext'
+import logo from '../../assets/logo.png'
 
 export default function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '', password_confirmation: '' })
@@ -33,7 +34,10 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Link to="/" className="text-2xl font-bold text-blue-600">Jejak Aksara</Link>
+          <Link to="/" className="text-2xl font-bold text-blue-600 inline-flex items-center gap-2">
+            <span>Jejak Aksara</span>
+            <img src={logo} alt="Logo" className="h-8 w-8 object-contain rounded" />
+          </Link>
           <h2 className="mt-4 text-2xl font-bold text-gray-900">Create an account</h2>
           <p className="text-sm text-gray-500 mt-1">You will be registered as an Author</p>
         </div>

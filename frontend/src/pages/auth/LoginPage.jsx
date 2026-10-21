@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
+import logo from '../../assets/logo.png'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -30,7 +31,10 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <Link to="/" className="text-2xl font-bold text-blue-600">Jejak Aksara</Link>
+          <Link to="/" className="text-2xl font-bold text-blue-600 inline-flex items-center gap-2">
+            <span>Jejak Aksara</span>
+            <img src={logo} alt="Logo" className="h-8 w-8 object-contain rounded" />
+          </Link>
           <h2 className="mt-4 text-2xl font-bold text-gray-900">Sign in to your account</h2>
         </div>
         <form onSubmit={handleSubmit} className="bg-white shadow-sm rounded-lg p-8 space-y-5 border border-gray-200">
