@@ -186,9 +186,7 @@ Authors are content creators with permission to create and manage their own blog
 - Input Author credentials: `author1@blog.com` with password `password`.
 - Click **Sign In** to authenticate and access the dashboard.
 
-<!-- SCREENSHOT PLACEHOLDER: Author Login -->
-> 📸 **Screenshot Placeholder:** *Halaman Login (Login sebagai Author)*  
-> `![Author Login](path/ke/screenshot-author-login.png)`
+<img width="2560" height="1392" alt="Screenshot 2026-10-22 030814" src="https://github.com/user-attachments/assets/8eb53a3b-4e83-4ebe-9536-08bac6a838e9" />
 
 ---
 
@@ -196,9 +194,8 @@ Authors are content creators with permission to create and manage their own blog
 - After logging in, the Author Dashboard displays personal statistics: **Total Posts**, **Published Posts**, and **Drafts**.
 - Notice the navigation sidebar: Authors only have access to **Dashboard** and **Posts** (the **Users** menu is hidden for Author role).
 
-<!-- SCREENSHOT PLACEHOLDER: Author Dashboard Overview -->
-> 📸 **Screenshot Placeholder:** *Tampilan Dashboard Author & Menu Navigasi*  
-> `![Author Dashboard](path/ke/screenshot-author-dashboard.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 030823" src="https://github.com/user-attachments/assets/d717528f-eb98-45a4-9b3a-f245d18965a2" />
+
 
 ---
 
