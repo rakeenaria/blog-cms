@@ -186,7 +186,7 @@ Authors are content creators with permission to create and manage their own blog
 - Input Author credentials: `author1@blog.com` with password `password`.
 - Click **Sign In** to authenticate and access the dashboard.
 
-<img width="2560" height="1392" alt="Screenshot 2026-10-22 030814" src="https://github.com/user-attachments/assets/8eb53a3b-4e83-4ebe-9536-08bac6a838e9" />
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 030814" src="https://github.com/user-attachments/assets/8eb53a3b-4e83-4ebe-9536-08bac6a838e9" />
 
 ---
 
@@ -195,7 +195,6 @@ Authors are content creators with permission to create and manage their own blog
 - Notice the navigation sidebar: Authors only have access to **Dashboard** and **Posts** (the **Users** menu is hidden for Author role).
 
 > <img width="2560" height="1392" alt="Screenshot 2026-10-22 030823" src="https://github.com/user-attachments/assets/d717528f-eb98-45a4-9b3a-f245d18965a2" />
-
 
 ---
 
@@ -209,9 +208,7 @@ Authors are content creators with permission to create and manage their own blog
   - **Status:** Select `Draft` (saved privately) or `Published` (immediately visible publicly).
 - Click **Save Post** to save.
 
-<!-- SCREENSHOT PLACEHOLDER: Create Post Form -->
-> 📸 **Screenshot Placeholder:** *Form Pembuatan Post Baru (Input Judul, Kategori, Gambar, dan Status)*  
-> `![Create Post Form](path/ke/screenshot-post-create.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 030854" src="https://github.com/user-attachments/assets/3f294072-c8cb-44f5-bb7f-e571d5db1528" />
 
 ---
 
@@ -222,9 +219,7 @@ Authors are content creators with permission to create and manage their own blog
 - **Delete:** Click the delete icon with confirmation to remove a post.
 - *Authorization Check:* Authors cannot access, edit, or delete posts created by other authors.
 
-<!-- SCREENSHOT PLACEHOLDER: Author Post List -->
-> 📸 **Screenshot Placeholder:** *Daftar Post Milik Author beserta Aksi Edit dan Hapus*  
-> `![Author Posts List](path/ke/screenshot-author-posts.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 030912" src="https://github.com/user-attachments/assets/097aaf27-beac-465e-ace7-3e93008cb897" />
 
 ---
 
@@ -233,9 +228,7 @@ Authors are content creators with permission to create and manage their own blog
 - Verify that posts with status `Published` appear in the article list and can be clicked to read the full detail page.
 - Verify that posts with status `Draft` remain hidden from public visitors.
 
-<!-- SCREENSHOT PLACEHOLDER: Public Homepage Verification -->
-> 📸 **Screenshot Placeholder:** *Tampilan Homepage Publik (Post yang Terbit Muncul, Draft Tersembunyi)*  
-> `![Homepage Articles](path/ke/screenshot-homepage-article.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 030944" src="https://github.com/user-attachments/assets/850d09af-fa6b-44e3-b4d1-ab372f85b8cf" />
 
 ---
 
@@ -248,9 +241,7 @@ Administrators hold full administrative privileges: managing all posts across al
 - Input Administrator credentials: `admin@blog.com` with password `password`.
 - Click **Sign In**.
 
-<!-- SCREENSHOT PLACEHOLDER: Admin Login -->
-> 📸 **Screenshot Placeholder:** *Halaman Login (Login sebagai Admin)*  
-> `![Admin Login](path/ke/screenshot-admin-login.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 031045" src="https://github.com/user-attachments/assets/685d9183-2454-468f-9696-3b3c3262120f" />
 
 ---
 
@@ -258,9 +249,7 @@ Administrators hold full administrative privileges: managing all posts across al
 - The Admin Dashboard displays overall system statistics across all authors.
 - The sidebar shows the full administrative menu: **Dashboard**, **Posts**, **Categories**, and **Users**.
 
-<!-- SCREENSHOT PLACEHOLDER: Admin Dashboard Overview -->
-> 📸 **Screenshot Placeholder:** *Tampilan Dashboard Admin (Statistik Keseluruhan & Menu Lengkap)*  
-> `![Admin Dashboard](path/ke/screenshot-admin-dashboard.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 031059" src="https://github.com/user-attachments/assets/19b0d94f-86ff-4f03-a2b5-277aaedd82b0" />
 
 ---
 
@@ -269,9 +258,7 @@ Administrators hold full administrative privileges: managing all posts across al
 - The Admin posts table displays posts from **all authors** and includes an **Author** column.
 - Administrators have permission to edit, change status, or delete any post on the platform.
 
-<!-- SCREENSHOT PLACEHOLDER: Admin All Posts Management -->
-> 📸 **Screenshot Placeholder:** *Tabel Semua Post dari Seluruh Author dengan Kolom Penulis*  
-> `![Admin All Posts Table](path/ke/screenshot-admin-posts.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 031134" src="https://github.com/user-attachments/assets/28b418e8-0569-45bc-bed6-389377bcee76" />
 
 ---
 
@@ -282,9 +269,7 @@ Administrators hold full administrative privileges: managing all posts across al
 - **Edit Category:** Update category name or description.
 - **Delete Category:** Remove a category.
 
-<!-- SCREENSHOT PLACEHOLDER: Category Management -->
-> 📸 **Screenshot Placeholder:** *Halaman Manajemen Kategori & Form Tambah/Edit Kategori*  
-> `![Category Management](path/ke/screenshot-categories.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 031148" src="https://github.com/user-attachments/assets/effd3b51-6c0e-4fec-9782-eaafee26457a" />
 
 ---
 
@@ -296,6 +281,4 @@ Administrators hold full administrative privileges: managing all posts across al
 - **Delete User:** Delete an account with confirmation.
 - *Safety Safeguard:* Administrators cannot delete their own active account, preventing accidental system lockout.
 
-<!-- SCREENSHOT PLACEHOLDER: User Management -->
-> 📸 **Screenshot Placeholder:** *Halaman Manajemen Pengguna (Daftar User & Form Tambah/Edit User)*  
-> `![User Management](path/ke/screenshot-user-management.png)`
+> <img width="2560" height="1392" alt="Screenshot 2026-10-22 031159" src="https://github.com/user-attachments/assets/89434aa3-e336-4ec2-b075-d1f2a29c4c1e" />
