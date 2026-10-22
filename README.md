@@ -79,7 +79,8 @@ cd backend
    php artisan key:generate
    ```
 
-5. **Run Migrations & Seed Sample Data:**
+5. **Run Migrations & Seed Sample Data (First-Time Setup Only):**
+   *(Note: Run this ONLY once during initial setup; do NOT run when restarting the server)*
    This creates all required database tables and populates sample users, categories, and articles:
    ```bash
    php artisan migrate:fresh --seed
@@ -135,6 +136,25 @@ cd frontend
    The React application is now running and can be accessed at:
    ```
    http://localhost:5173
+```
+
+---
+
+### How to Run the Project Next Time (Daily Run)
+
+After the initial setup is complete, you do **NOT** need to run migrations, key generate, or seeders again. To start the application anytime, simply open two terminals:
+
+1. **Terminal 1 (Backend API):**
+   ```bash
+   cd backend
+   php artisan serve
+   ```
+
+2. **Terminal 2 (Frontend React):**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
    ```
 
 ---
