@@ -2,15 +2,6 @@
 
 A simple, fully functional Blog Post Content Management System (CMS) featuring a public-facing Homepage and a secure Admin Dashboard.
 
-Built to fulfill the assignment requirements specified in `task.txt`:
-- **Multi-User System:** Role-based access control for Administrators and Authors, plus public visitor access.
-- **Post Management:** Full CRUD capabilities for blog posts with status control (Draft & Published) and featured image upload.
-- **Post Category:** Category management and assignment to blog posts.
-- **Admin Dashboard:** Backend interface to manage users, posts, and categories.
-- **Public Homepage:** Responsive frontend displaying published posts with search and category filters.
-
----
-
 ## Tech Stack
 
 - **Backend:** Laravel 13 (REST API) with PHP 8.5
