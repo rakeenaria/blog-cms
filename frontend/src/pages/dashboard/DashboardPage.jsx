@@ -16,8 +16,8 @@ export default function DashboardPage() {
         setRecentPosts(data.data.slice(0, 5))
         setStats({
           total: data.total,
-          published: data.data.filter(p => p.status === 'published').length,
-          draft: data.data.filter(p => p.status === 'draft').length,
+          published: data.published_count ?? data.data.filter(p => p.status === 'published').length,
+          draft: data.draft_count ?? data.data.filter(p => p.status === 'draft').length,
         })
       })
       .catch(console.error)

@@ -67,9 +67,17 @@ class PostController extends Controller
             $query->where('status', $request->status);
         }
 
-        $posts = $query->latest()->paginate(15);
+        $statsQuery = Post::query();
+        if (! $user->isAdmin()) {
+            $statsQuery->where('user_id', $user->id);
+        }
 
-        return response()->json($posts);
+        $posts = $query->latest()->paginate(15);
+        $response = $posts->toArray();
+        $response['published_count'] = (clone $statsQuery)->where('status', 'published')->count();
+        $response['draft_count'] = (clone $statsQuery)->where('status', 'draft')->count();
+
+        return response()->json($response);
     }
 
     // Admin/Author: view single post
