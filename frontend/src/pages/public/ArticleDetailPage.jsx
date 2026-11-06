@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import DOMPurify from 'dompurify'
-import api from '../../api/axios'
+import api, { API_BASE_URL } from '../../api/axios'
 import Navbar from '../../components/layout/Navbar'
 
 export default function ArticleDetailPage() {
@@ -35,7 +35,7 @@ export default function ArticleDetailPage() {
   )
 
   const imageUrl = post.featured_image
-    ? `${import.meta.env.VITE_API_BASE_URL || ''}/storage/${post.featured_image}`
+    ? `${API_BASE_URL}/storage/${post.featured_image}`
     : null
   const safeBody = DOMPurify.sanitize(post.body)
 

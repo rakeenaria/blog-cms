@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import { API_BASE_URL } from '../api/axios'
 
 export default function PostCard({ post }) {
   const imageUrl = post.featured_image
-    ? `${import.meta.env.VITE_API_BASE_URL || ''}/storage/${post.featured_image}`
+    ? `${API_BASE_URL}/storage/${post.featured_image}`
     : null
 
   const formatDate = (dateStr) => {

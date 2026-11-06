@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // On mount, restore auth state from session cookie
+  // On mount, restore auth state from session cookie or token
   const fetchUser = useCallback(async () => {
     try {
       const { data } = await api.get('/api/user')
@@ -26,15 +26,22 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     // Step 1: Get CSRF cookie
     await api.get('/sanctum/csrf-cookie')
-    // Step 2: Authenticate (XSRF-TOKEN sent automatically by Axios)
-    const { data } = await api.post('/login', { email, password })
+    // Step 2: Authenticate
+    const { data } = await api.post('/api/login', { email, password })
+    if (data.token) {
+      sessionStorage.setItem('auth_token', data.token)
+    }
     setUser(data.user)
     return data.user
   }
 
   const logout = async () => {
-    await api.post('/logout')
-    setUser(null)
+    try {
+      await api.post('/api/logout')
+    } finally {
+      sessionStorage.removeItem('auth_token')
+      setUser(null)
+    }
   }
 
   const isAdmin = () => user?.role === 'admin'
@@ -52,4 +59,3 @@ export function useAuth() {
   if (!context) throw new Error('useAuth must be used within AuthProvider')
   return context
 }
-

@@ -36,20 +36,35 @@ class AuthController extends Controller
             ], 422);
         }
 
-        $request->session()->regenerate();
+        if ($request->hasSession()) {
+            $request->session()->regenerate();
+        }
+
+        /** @var User $user */
+        $user = Auth::user();
+        $token = $user->createToken('spa_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Login successful.',
-            'user'    => Auth::user(),
+            'user'    => $user,
+            'token'   => $token,
         ]);
     }
 
     public function logout(Request $request): JsonResponse
     {
+        /** @var User|null $user */
+        $user = $request->user();
+        if ($user) {
+            $user->tokens()->delete();
+        }
+
         Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        if ($request->hasSession()) {
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
 
         return response()->json(['message' => 'Logged out successfully.']);
     }
@@ -59,4 +74,3 @@ class AuthController extends Controller
         return response()->json($request->user());
     }
 }
-
