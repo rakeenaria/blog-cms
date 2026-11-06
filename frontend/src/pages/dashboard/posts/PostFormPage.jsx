@@ -23,7 +23,7 @@ export default function PostFormPage() {
       api.get(`/api/admin/posts/${id}`)
         .then(({ data }) => {
           setForm({ title: data.title, body: data.body, status: data.status, categories: data.categories?.map(c => c.id) || [] })
-          if (data.featured_image) setExistingImage(`${import.meta.env.VITE_API_BASE_URL}/storage/${data.featured_image}`)
+          if (data.featured_image) setExistingImage(`${import.meta.env.VITE_API_BASE_URL || ''}/storage/${data.featured_image}`)
         })
         .catch(console.error)
         .finally(() => setFetching(false))

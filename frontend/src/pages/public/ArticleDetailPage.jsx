@@ -35,7 +35,7 @@ export default function ArticleDetailPage() {
   )
 
   const imageUrl = post.featured_image
-    ? `${import.meta.env.VITE_API_BASE_URL}/storage/${post.featured_image}`
+    ? `${import.meta.env.VITE_API_BASE_URL || ''}/storage/${post.featured_image}`
     : null
   const safeBody = DOMPurify.sanitize(post.body)
 

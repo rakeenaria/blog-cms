@@ -1,0 +1,17 @@
+{
+  "rewrites": [
+    {
+      "source": "/(api|sanctum|storage)/(.*)",
+      "destination": "https://blog-cms-production-36db.up.railway.app/$1/$2"
+    },
+    {
+      "source": "/(login|logout)",
+      "destination": "https://blog-cms-production-36db.up.railway.app/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
