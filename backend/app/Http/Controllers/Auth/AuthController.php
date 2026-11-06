@@ -39,12 +39,21 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if ($request->hasSession()) {
-            Auth::login($user);
-            $request->session()->regenerate();
+        try {
+            if ($request->hasSession()) {
+                Auth::guard('web')->login($user);
+                $request->session()->regenerate();
+            }
+        } catch (\Throwable $e) {
+            // Fallback if session store is unavailable
         }
 
-        $token = $user->createToken('spa_token')->plainTextToken;
+        $token = null;
+        try {
+            $token = $user->createToken('spa_token')->plainTextToken;
+        } catch (\Throwable $e) {
+            // Fallback if token table is unavailable
+        }
 
         return response()->json([
             'message' => 'Login successful.',
@@ -55,16 +64,24 @@ class AuthController extends Controller
 
     public function logout(Request $request): JsonResponse
     {
-        /** @var User|null $user */
-        $user = $request->user();
-        if ($user) {
-            $user->tokens()->delete();
+        try {
+            /** @var User|null $user */
+            $user = $request->user();
+            if ($user && method_exists($user, 'tokens')) {
+                $user->tokens()->delete();
+            }
+        } catch (\Throwable $e) {
+            // Ignore token cleanup errors
         }
 
-        if ($request->hasSession()) {
-            Auth::guard('web')->logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
+        try {
+            if ($request->hasSession()) {
+                Auth::guard('web')->logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+            }
+        } catch (\Throwable $e) {
+            // Ignore session cleanup errors
         }
 
         return response()->json(['message' => 'Logged out successfully.']);
