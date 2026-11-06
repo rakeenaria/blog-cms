@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,9 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request): JsonResponse
     {
-        if (! Auth::attempt($request->only('email', 'password'))) {
+        $user = User::where('email', $request->email)->first();
+
+        if (! $user || ! Hash::check($request->password, $user->password)) {
             return response()->json([
                 'message' => 'The provided credentials are incorrect.',
                 'errors'  => ['email' => ['The provided credentials are incorrect.']],
@@ -37,11 +40,10 @@ class AuthController extends Controller
         }
 
         if ($request->hasSession()) {
+            Auth::login($user);
             $request->session()->regenerate();
         }
 
-        /** @var User $user */
-        $user = Auth::user();
         $token = $user->createToken('spa_token')->plainTextToken;
 
         return response()->json([
@@ -59,9 +61,8 @@ class AuthController extends Controller
             $user->tokens()->delete();
         }
 
-        Auth::guard('web')->logout();
-
         if ($request->hasSession()) {
+            Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
         }
