@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.DEV ? 'http://localhost:8000' : 'https://blog-cms-production-36db.up.railway.app')
+  (import.meta.env.DEV ? 'http://localhost:8000' : '')
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -15,7 +15,7 @@ const api = axios.create({
   },
 })
 
-// Attach XSRF-TOKEN cookie and Sanctum Bearer token (for cross-domain deployments)
+// Attach XSRF-TOKEN cookie and Sanctum Bearer token (for production deployments)
 api.interceptors.request.use((config) => {
   if (typeof document !== 'undefined') {
     const match = document.cookie.match(new RegExp('(^|;\\s*)XSRF-TOKEN=([^;]*)'))
