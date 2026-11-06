@@ -26,8 +26,9 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     // Step 1: Get CSRF cookie
     await api.get('/sanctum/csrf-cookie')
-    // Step 2: Authenticate
-    const { data } = await api.post('/api/login', { email, password })
+    // Step 2: Authenticate via web session route
+    const loginPath = import.meta.env.DEV ? '/login' : '/backend-auth/login'
+    const { data } = await api.post(loginPath, { email, password })
     if (data.token) {
       sessionStorage.setItem('auth_token', data.token)
     }
@@ -37,7 +38,8 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await api.post('/api/logout')
+      const logoutPath = import.meta.env.DEV ? '/logout' : '/backend-auth/logout'
+      await api.post(logoutPath)
     } finally {
       sessionStorage.removeItem('auth_token')
       setUser(null)
